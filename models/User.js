@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt")
 const userSchema = new Schema ({
     username: {
         type: String,
-        required: [true, 'Username cannot be empty'],
+        required: [true, 'Username cannot empty'],
         validate: [{
             validator: (value) => {
                 return models.User.findOne({ username: value})

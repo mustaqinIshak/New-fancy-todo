@@ -2,7 +2,7 @@
 
 const { Schema, model} = require("mongoose")
 
-const noteSchema = new Schema ({
+const todoSchema = new Schema ({
     title: {
         type: String,
     },
@@ -13,10 +13,11 @@ const noteSchema = new Schema ({
         type: String
     },
     userId: {
+        required:[true, 'id user is required'],
         type: Schema.Types.ObjectId, ref: 'User'
     }
 })
 
-const Note = model('Note', noteSchema)
+const Todo = model('Todo', todoSchema)
 
-module.exports = Note
+module.exports = Todo
