@@ -15,7 +15,6 @@
 	`username:[String]`
 	`password:[String]`
 * **Success Response**
-	
 	* **Code: ** 201 <br />
 	**Content: **
 	``` 
@@ -25,8 +24,6 @@
 	  	token: 		"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjNmOTExNjZiMDQ3NzlkMGJmZmUyZSIsImlhdCI6MTYxMDE2MDMxNH0.HJXEH1NJWix1gg_WGC080zYx9NQ06vuf4rso5LOZ5NY"
 	}
 	```
-```
-	
 * **Error Response**
 	* **Code: ** 400 BAD REQUEST<br />
 		**Content: **`{message: username cannot empty}`
@@ -35,7 +32,7 @@
 		**Content: **`message: password cannot empty`
 * **Sample Call**
 
-​```javascript
+```Javascript
     $.ajax({
         url:"user/registe",
         dataType: "json",
@@ -45,7 +42,6 @@
                     console.log(data)
         }
     })
-
 ```
 
 **Login**
@@ -101,9 +97,8 @@ None
 	**Required**
 	`Authorization: Bearer Token`
 * **Data Params**
-	`title: [String]`
 	`date: [Date]`
-    `note: [String]`
+    `todo: [String]`
 * **Success Response**
 	* **Code: **201 <br />
 	**Content: ** `{message: "create todo success"}`
@@ -114,8 +109,7 @@ None
 ```Javascript
 	const id= 
 	$.ajax({
-		url:"todo/create",
+		url:"todo/create?idUser=",
 		
 	})
 ```
-	
