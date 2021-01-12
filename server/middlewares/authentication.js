@@ -13,15 +13,9 @@ async function authentication (req, res, next) {
                 status: 401
             })
         } else {
-            const verify= await verifyToken(token)
-            if(verify.id === req.query.userId) {
-                next()
-            } else {
-                throw({
-                    message: 'invalid Id',
-                    status: 403
-                })
-            }
+            const verify = await verifyToken(token)
+           req.userId = verify.id
+            next()
         }
         
 
