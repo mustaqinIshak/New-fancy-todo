@@ -5,13 +5,12 @@ const Todo = require('../models/Todo')
 class todoController {
     static async create(req, res, next) {
         try {
-            const {title, date, note } = req.body
+            const {date, todo } = req.body
             const userId = req.query.userId
 
             let newTodo = await Todo.create({
-                title: title,
                 date: date,
-                note: note,
+                todo: todo,
                 userId: userId
             })
 
@@ -49,13 +48,12 @@ class todoController {
     static async update (req, res, next) {
         try {
             const todoId = req.query.todoId
-            const {title, date, note} = req.body
+            const {date, todo, status} = req.body
             const findAndUpdate = await Todo.findByIdAndUpdate({_id : todoId} , 
                 { 
-                    title: title,
                     date: date,
-                    note: note
-                
+                    todo: todo,
+                    status: status
                 }
             )
 
