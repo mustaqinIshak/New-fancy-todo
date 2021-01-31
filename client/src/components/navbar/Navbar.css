@@ -1,0 +1,17 @@
+/* color-palate 
+Electric-lime: #5bd606
+Royal-Purple: #450d6b */
+
+.NavbarItems {
+    padding: 16px 64px;
+    border-bottom: 1px solid;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.2 rem;
+}
+
+ul {
+    list-style-type:none;
+}

@@ -1,0 +1,10 @@
+/* color-palate 
+Electric-lime: #5bd606
+Royal-Purple: #450d6b */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #5bd606;
+  background: #450d6b;
+}
