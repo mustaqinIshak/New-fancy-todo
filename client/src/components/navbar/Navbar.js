@@ -16,7 +16,7 @@ function ListMenuItems(props) {
             }
         })
         return (
-            <ul>{list}</ul>
+            list
         )
     } else {
         menuItems.pop()
@@ -24,7 +24,7 @@ function ListMenuItems(props) {
             return <li key={index}><a href={item.url} className={item.cName}>{item.title}</a></li>
         })
         return (
-            <ul>{list}</ul>
+            list
         )
     }
 };
@@ -40,8 +40,15 @@ class Navbar extends Component {
     render(){
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">Fancy Todo</h1>
-                <ListMenuItems menuItems={this.state.menuItems} isLogin={this.state.isLogin}/>
+                <div className="logo">
+                    <h1 className="navbar-logo">Fancy Todo</h1>
+                    <div className="menu-icon">
+                </div>
+
+                </div>
+                <ul className="">
+                    <ListMenuItems menuItems={this.state.menuItems} isLogin={this.state.isLogin}/>
+                </ul>
             </nav>
         )
     };

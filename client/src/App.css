@@ -1,10 +1,19 @@
-/* color-palate 
+/* 
+color-palate 
 Electric-lime: #5bd606
-Royal-Purple: #450d6b */
+Royal-Purple: #450d6b 
+
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif;
+
+*/
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: #5bd606;
   background: #450d6b;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }

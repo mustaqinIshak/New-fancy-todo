@@ -1,17 +1,49 @@
-/* color-palate 
+/* 
+color-palate 
 Electric-lime: #5bd606
-Royal-Purple: #450d6b */
+Royal-Purple: #450d6b 
+
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif;
+
+*/
 
 .NavbarItems {
     padding: 16px 64px;
     border-bottom: 1px solid;
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
     font-size:1.2 rem;
+    text-transform: uppercase;
+    text-align: center;
+    grid-template-areas:
+    "logo navList"
 }
 
+.logo {
+    grid-area: "logo";
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-logo {
+    font-family: 'Bebas Neue', cursive;   
+}
+
+
+
 ul {
-    list-style-type:none;
+    grid-area: "navList";
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-link {
+    font-family: 'Archivo Black';
+    text-decoration: none;
+    margin: 0 10px;
 }
