@@ -18,7 +18,6 @@ font-family: 'Montserrat', sans-serif;
     grid-template-rows: 100%;
     font-size:1.2 rem;
     text-transform: uppercase;
-    text-align: center;
     grid-template-areas:
     "logo navList"
 }
@@ -26,7 +25,8 @@ font-family: 'Montserrat', sans-serif;
 .logo {
     grid-area: "logo";
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-logo {
@@ -35,15 +35,29 @@ font-family: 'Montserrat', sans-serif;
 
 
 
-ul {
+.nav-list-button {
     grid-area: "navList";
     list-style: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-list-button li {
+    margin-left: 20px;
+    border: 1px solid;
+    padding: 10px;
+    width: 25%;
 }
 
 .nav-link {
     font-family: 'Archivo Black';
     text-decoration: none;
-    margin: 0 10px;
+}
+
+.btn-nav-link {
+    font-family: 'Archivo Black';
+    text-decoration: none;
+    
 }

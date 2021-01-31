@@ -11,7 +11,7 @@ function ListMenuItems(props) {
     const isLogin = props.isLogin
     if(isLogin) {
         const list = menuItems.map((item, index) => {
-            if(item.title === "log out"){
+            if(item.title === "Log Out"){
                 return <li key={index}><a href={item.url} className={item.cName}>{item.title}</a></li>
             }
         })
@@ -34,19 +34,27 @@ class Navbar extends Component {
         super(props)
         this.state = {
             menuItems: MenuItems.concat(),
-            isLogin: false
+            isLogin: false,
+            isClicked: false,
         }
     }
+
+    handleClick = () => {
+        this.setState({
+            isClicked: !this.state.isClicked
+        })
+    }
+
     render(){
         return (
             <nav className="NavbarItems">
                 <div className="logo">
                     <h1 className="navbar-logo">Fancy Todo</h1>
-                    <div className="menu-icon">
+                    <div className="menu-icon" onClick={this.handleClick}>
+                        <i className={this.state.isClicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                    </div>
                 </div>
-
-                </div>
-                <ul className="">
+                <ul className="nav-list-button">
                     <ListMenuItems menuItems={this.state.menuItems} isLogin={this.state.isLogin}/>
                 </ul>
             </nav>
