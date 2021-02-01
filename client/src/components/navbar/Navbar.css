@@ -29,6 +29,10 @@ font-family: 'Montserrat', sans-serif;
     align-items: center;
 }
 
+.menu-item-off {
+    display: none;
+}
+
 .navbar-logo {
     font-family: 'Bebas Neue', cursive;   
 }
@@ -44,20 +48,25 @@ font-family: 'Montserrat', sans-serif;
     justify-content: flex-end;
 }
 
-.nav-list-button li {
+.nav-button{
+  
+    
+}
+
+.nav-button a {
+    font-family: 'Archivo Black';
+    text-decoration: none;
     margin-left: 20px;
     border: 1px solid;
     padding: 10px;
-    width: 25%;
+    width: 25px;
 }
 
-.nav-link {
-    font-family: 'Archivo Black';
-    text-decoration: none;
+.nav-button:hover {
+   color: #450d6b;
+   background: #5bd606;
 }
 
-.btn-nav-link {
-    font-family: 'Archivo Black';
-    text-decoration: none;
-    
+.btn-nav-logOut {
+  
 }

@@ -2,42 +2,33 @@
 'use strict'
 
 import React, { Component } from 'react';
+import { isElementOfType } from 'react-dom/test-utils';
 import { MenuItems } from './MenuItems';
 import "./Navbar.css"
 
 
-function ListMenuItems(props) {
-    const menuItems = props.menuItems
-    const isLogin = props.isLogin
-    if(isLogin) {
-        const list = menuItems.map((item, index) => {
-            if(item.title === "Log Out"){
-                return <li key={index}><a href={item.url} className={item.cName}>{item.title}</a></li>
-            }
-        })
-        return (
-            list
-        )
-    } else {
-        menuItems.pop()
-        const list = menuItems.map((item, index) => {
-            return <li key={index}><a href={item.url} className={item.cName}>{item.title}</a></li>
-        })
-        return (
-            list
-        )
-    }
-};
+// function ListMenuItems(props) {
+//     const menuItems = MenuItems.concat()
+//     const login = MenuItems.pop()
+//     const logOut = menuItems[menuItems.length - 1]
+//     const isLogin = props.isLogin
+//     if(!isLogin) {
+//         for (let i = 0; i < login.length; i++) {
+//             <li key={login[i].index}><a href={login[i].url} className={login[i].cName}>{login[i].title}</a></li>
+//         }
+//     } 
+//     else {
+//             return (<li><a href={logOut.url} className={logOut.cName}>{logOut.title}</a></li>)
+//     }
+// };
 
 class Navbar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            menuItems: MenuItems.concat(),
+  state = {
+            
             isLogin: false,
             isClicked: false,
+            menuItems: MenuItems,
         }
-    }
 
     handleClick = () => {
         this.setState({
@@ -55,7 +46,19 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <ul className="nav-list-button">
-                    <ListMenuItems menuItems={this.state.menuItems} isLogin={this.state.isLogin}/>
+                 {MenuItems.map((item, index) => {
+                    if(index === MenuItems.length - 1) {
+                       return (
+                        <li className={this.state.isLogin ? 'nav-button' : 'menu-item-off'}><a className={item.cName} href={item.url}>{item.title}</a></li>
+                       )
+                    } else {
+                        return(
+                            <li className={this.state.isLogin ? 'menu-item-off' : 'nav-button'}><a className={item.cName} href={item.url}>{item.title}</a></li>
+                        )
+                    }
+                 })}
+
+                 {/* <ListMenuItems  isLogin={this.state.isLogin}/> */}
                 </ul>
             </nav>
         )
