@@ -9,6 +9,7 @@ font-family: 'Montserrat', sans-serif;
 
 */
 
+/* navbar logo section */
 .NavbarItems {
     padding: 16px 64px;
     border-bottom: 1px solid;
@@ -29,37 +30,48 @@ font-family: 'Montserrat', sans-serif;
     align-items: center;
 }
 
-.menu-item-off {
-    display: none;
-}
-
 .navbar-logo {
     font-family: 'Bebas Neue', cursive;   
 }
 
+.menu-icon {
+    display:none;
+}
 
 
-.nav-list-button {
+/* nabar menu section */
+.menu {
     grid-area: "navList";
-    list-style: none;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
 }
-
-.nav-button{
-  
-    
+.nav-list-button {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.nav-button a {
+.nav-button{ 
+    margin-left: 20px;
+}
+
+.nav-button a{
     font-family: 'Archivo Black';
     text-decoration: none;
-    margin-left: 20px;
-    border: 1px solid;
-    padding: 10px;
+    padding: 0.5rem 1rem;
     width: 25px;
+}
+
+.nav-link:hover {
+    background-color: #5bd606;
+    color:#450d6b;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
 }
 
 .nav-button:hover {
@@ -69,4 +81,9 @@ font-family: 'Montserrat', sans-serif;
 
 .btn-nav-logOut {
   
+}
+
+
+.menu-item-off {
+    display: none;
 }

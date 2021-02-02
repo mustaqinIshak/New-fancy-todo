@@ -1,11 +1,24 @@
-import './App.css';
-import Navbar from "./components/navbar/Navbar"
-function App() {
-  return (
-    <div className="App">
-     <Navbar />
-    </div>
-  );
+import React from 'react'
+import './App.scss';
+import { Navbar } from "./components/navbar/Navbar"
+import { Login } from "./components/Login/Login"
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoginActive: true,
+      isLogin: false,
+    }
+  }
+
+  render() {
+    return(
+      <Login/>
+    )
+  }
+
 }
 
 export default App;
