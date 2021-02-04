@@ -12,7 +12,7 @@ export class Login extends React.Component {
         return(
             <div className="base-container">
                 <div className="header">
-                    Login :
+                    Login
                 </div>
                 <div className="form">
                     <div className="form-group">

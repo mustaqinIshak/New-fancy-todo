@@ -21,3 +21,59 @@ font-family: 'Montserrat', sans-serif;
 .navbar-off {
   display:none;
 }
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.login {
+  width: 27em;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  position: absolute;
+  top: 10%;
+    
+  .container {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 617px) {
+  .login {
+    width: 27em;
+    height: 40em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    position: absolute;
+    top: 10%;
+
+    .img-responsive {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
+    .container {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 17em;
+      height: 33em;
+    }
+  }
+
+  
+  
+} 

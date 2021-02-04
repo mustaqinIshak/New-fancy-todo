@@ -14,8 +14,7 @@ font-family: 'Montserrat', sans-serif;
     flex-direction:column;
     align-items:center;
     border: 1px solid #5bd606;
-    
-
+    padding: 20px;
     .header {
         font-size: 24px;
         font-family: 'Archivo Black', sans-serif;
@@ -45,21 +44,17 @@ font-family: 'Montserrat', sans-serif;
                 padding: 0 10px;
                 font-size: 16px;
                 color: #5bd606;
-                // background-color: #f3f3f3;
                 text-align: left;
                 border: 1px solid #5bd606;
-                border-radius: 4px;
                 margin-bottom: 31px;
                 transition: all 250ms ease-in-out;
-                &:hover {
-                    // background-color: #ffffff;
-                    // box-shadow: 0px 0px 14px 0.3px #5bd606;
-                }
-                &:focus {
-                    // outline: none;
-                    // box-shadow: 0px 0px 12px 0.8px #5bd606;
+            }
+            @media only screen and (max-width: 617px) {
+                input {
+                    min-width: 13em;
                 }
             }
         }
     }
 }
+
