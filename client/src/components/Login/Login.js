@@ -17,10 +17,10 @@ export class Login extends React.Component {
         let  errors = {}
         let formIsValid = true
 
-        //username
+        //fullname
         if(!field["fullname"]) {
             formIsValid = false
-            errors["fullname"] = "fullname Cannot be empty"
+            errors["fullname"] = "fullname cannot be empty"
         }
 
         if(typeof field["fullname"] !== "undefined"){
@@ -31,7 +31,17 @@ export class Login extends React.Component {
         }
 
         //username
+        if(!field["username"]){
+            formIsValid = false
+            errors["username"] = "username cannot be empty"
+        }
 
+        if(typeof field["username"]!== "undefined"){
+            if(field["username"].match(/[\s]/g)){
+                formIsValid = false
+                errors["username"] = "username cannot be any whitespace"
+            }
+        }
 
         //email
         if(!field["email"]) {
@@ -43,7 +53,7 @@ export class Login extends React.Component {
            let lastAtPos = field["email"].lastIndexOf('@')
            let lastDotPos = field["email"].lastIndexOf('.')
 
-           if(!(lastAtPos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') == -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)){
+           if(!(lastAtPos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)){
                formIsValid = false
                errors["email"] = "Email is not valid"
            }
