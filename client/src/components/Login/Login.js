@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.scss";
+import "../../General/style.scss";
 import { Button } from "../Button";
 import { render } from "@testing-library/react";
 

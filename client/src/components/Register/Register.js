@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Button } from "../Button"
-import "./Register.scss"
+import "../../General/style.scss";
 
 export class Register extends React.Component {
     constructor(props) {

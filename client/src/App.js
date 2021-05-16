@@ -23,10 +23,12 @@ class App extends React.Component {
   render() {
     return(
       <div className="App">
-        <div className="login">
-          <img src={Logo} alt="logo" className="img-responsive"></img>
-          <div className="container">
-            {this.state.isLoginActive ? <Login  onClick={this.changeState.bind(this)} /> : <Register onClick={this.changeState.bind(this)} />}
+        <div className="form-input">
+          <div class="item">
+            <img src={Logo} alt="logo" className="img-responsive"></img>
+            <div className="container">
+              {this.state.isLoginActive ? <Login  onClick={this.changeState.bind(this)} /> : <Register onClick={this.changeState.bind(this)} />}
+            </div>
           </div>
         </div>
       </div>
