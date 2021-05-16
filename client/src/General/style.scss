@@ -1,0 +1,71 @@
+/* 
+color-palate 
+Electric-lime: #5bd606
+Royal-Purple: #450d6b 
+
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif;
+
+*/
+/* LOGIN - REGISTER */
+.base-container{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    border: 1px solid #5bd606;
+    padding: 20px;
+    .header {
+        font-size: 24px;
+        font-family: 'Archivo Black', sans-serif;
+        text-transform: uppercase;
+    }
+
+    .form {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .form-group {
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            width: fit-content;
+            margin: 10px 0;
+            label {
+                font-size: 20px;
+            }
+
+            input {
+                margin-top: 6px;
+                min-width: 18em;
+                height: 37px;
+                padding: 0 10px;
+                font-size: 16px;
+                color: #5bd606;
+                text-align: left;
+                border: 1px solid #5bd606;
+                margin-bottom: 31px;
+                transition: all 250ms ease-in-out;
+            }
+            @media only screen and (max-width: 617px) {
+                input {
+                    min-width: 13em;
+                }
+            }
+        }
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        .register-link:hover {
+            cursor: pointer;
+        }
+        Button {
+            margin: 2em 0;
+        }
+    }
+}
+/* ---------------------------------- */

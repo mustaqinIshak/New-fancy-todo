@@ -1,0 +1,89 @@
+/* 
+color-palate 
+Electric-lime: #5bd606
+Royal-Purple: #450d6b 
+
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif;
+
+*/
+
+/* navbar logo section */
+.NavbarItems {
+    padding: 16px 64px;
+    border-bottom: 1px solid;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    font-size:1.2 rem;
+    text-transform: uppercase;
+    grid-template-areas:
+    "logo navList"
+}
+
+.logo {
+    grid-area: "logo";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-family: 'Bebas Neue', cursive;   
+}
+
+.menu-icon {
+    display:none;
+}
+
+
+/* nabar menu section */
+.menu {
+    grid-area: "navList";
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav-list-button {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-button{ 
+    margin-left: 20px;
+}
+
+.nav-button a{
+    font-family: 'Archivo Black';
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    width: 25px;
+}
+
+.nav-link:hover {
+    background-color: #5bd606;
+    color:#450d6b;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+.nav-button:hover {
+   color: #450d6b;
+   background: #5bd606;
+}
+
+.btn-nav-logOut {
+  
+}
+
+
+.menu-item-off {
+    display: none;
+}

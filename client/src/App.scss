@@ -1,0 +1,83 @@
+/* 
+color-palate 
+Electric-lime: #5bd606
+Royal-Purple: #450d6b 
+
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif;
+
+*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #5bd606;
+  background: #450d6b;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.navbar-off {
+  display:none;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  // position: absolute;
+  // top: 10%;
+  // text-align: center;
+  // display: grid;
+ 
+  
+}
+
+
+.form-input {
+  width: 27em;
+  height: 40em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  .container {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and ( min-width: 618px ) {
+
+}
+
+@media only screen and (max-width: 617px) {
+  .form-input {
+    width: 27em;
+    height: 40em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+
+    .img-responsive {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
+    .container {
+      // margin-top: 45px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      width: 17em;
+      height: 33em;
+    }
+  }
+
+  
+  
+} 
