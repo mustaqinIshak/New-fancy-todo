@@ -40,25 +40,41 @@ font-family: 'Montserrat', sans-serif;
 
             input {
                 margin-top: 6px;
-                min-width: 18em;
+                min-width: 16em;
                 height: 37px;
                 padding: 0 10px;
                 font-size: 16px;
                 color: #5bd606;
                 text-align: left;
                 border: 1px solid #5bd606;
-                margin-bottom: 31px;
                 transition: all 250ms ease-in-out;
             }
             @media only screen and (max-width: 617px) {
-                input {
-                    min-width: 13em;
+                .header {
+                    font-size: 12px;
                 }
+               
+                label { 
+                    font-size: 15px;
+                }
+                
+                input {
+                    font-size: 12px;
+                    min-width: 17em;
+                }
+
+                .footer { 
+                    a {
+                        font-size: 12px;
+                    }
+                }
+
             }
         }
     }
     .footer{
         display: flex;
+        margin-top: 1em;
         flex-direction: column;
         .register-link:hover {
             cursor: pointer;

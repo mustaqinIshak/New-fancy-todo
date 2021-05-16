@@ -7,6 +7,61 @@ import "../../General/style.scss";
 export class Register extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            field: {},
+            errors: {},
+        }
+    }
+
+    handleValidation() {
+        let { field } = this.state
+        let errors = {}
+        let formIsValid = true
+
+        //fullname
+        if(!field["fullname"]) {
+            formIsValid = false
+            errors["fullname"] = "fullname cannor be empty"
+        }
+
+        if (typeof filed["fullname"] !== "undifined") {
+            if(!field["fullname"].match(/^[a-zA-z]+$/)) {
+                formisValid = false
+                errors["fullname"] = "Only Letters"
+            }
+        }
+
+        //username
+        if(!field["username"]){
+            formIsValid = false
+            errors["username"] = "username cannot be empty"
+        }
+
+        if (typeof field["username"] !== "undefined") {
+            if(field["username"].match(/[\s]/g)){
+                formIsValid = false
+                errors["username"] = "username cannot be any whitespace"
+            }
+        }
+
+
+        //email
+        if(!field["email"]) {
+            formIsValid = false
+            errors["email"] = "email cannot be empty"
+        }
+
+        if(typeof field["email"] !== "undefined") {
+            let lastAtPos = field["email"].lastIndexOf('@')
+            let lastDotPos = field["email"].lastIndexOf('.')
+
+           if(!(lastAtpos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)) {
+               formIsValid = false
+               errors["email"] = "email is not valid"
+           }
+        }
+
+
     }
 
     render() {
@@ -43,7 +98,7 @@ export class Register extends React.Component {
                 </div>
                 <div className="footer">
                     <a>Already have account ? <a className="login-link" onClick={this.props.onClick}>Please login here</a></a>
-                    <Button>Register</Button>
+                    <Button type={"button"} buttonStyle={"btn--outline"}>Register</Button>
                 </div>
             </div>
         )

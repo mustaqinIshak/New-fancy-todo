@@ -17,19 +17,6 @@ export class Login extends React.Component {
         let  errors = {}
         let formIsValid = true
 
-        //fullname
-        if(!field["fullname"]) {
-            formIsValid = false
-            errors["fullname"] = "fullname cannot be empty"
-        }
-
-        if(typeof field["fullname"] !== "undefined"){
-            if(!field["fullname"].match(/^[a-zA-Z]+$/)){
-                formIsValid = false
-                errors["fullname"] = "Only Letters"
-            }
-        }
-
         //username
         if(!field["username"]){
             formIsValid = false
