@@ -76,7 +76,7 @@ font-family: 'Montserrat', sans-serif;
         display: flex;
         margin-top: 1em;
         flex-direction: column;
-        .register-link:hover {
+        .register-link:hover, .login-link:hover {
             cursor: pointer;
         }
         Button {

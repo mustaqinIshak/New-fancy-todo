@@ -9,7 +9,7 @@ export class Register extends React.Component {
         super(props)
         this.state = {
             field: {},
-            errors: {},
+            errors: {},    
         }
     }
 
@@ -24,9 +24,9 @@ export class Register extends React.Component {
             errors["fullname"] = "fullname cannor be empty"
         }
 
-        if (typeof filed["fullname"] !== "undifined") {
+        if (typeof field["fullname"] !== "undifined") {
             if(!field["fullname"].match(/^[a-zA-z]+$/)) {
-                formisValid = false
+                formIsValid = false
                 errors["fullname"] = "Only Letters"
             }
         }
@@ -55,7 +55,7 @@ export class Register extends React.Component {
             let lastAtPos = field["email"].lastIndexOf('@')
             let lastDotPos = field["email"].lastIndexOf('.')
 
-           if(!(lastAtpos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)) {
+           if(!(lastAtPos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)) {
                formIsValid = false
                errors["email"] = "email is not valid"
            }
@@ -100,6 +100,7 @@ export class Register extends React.Component {
                     <a>Already have account ? <a className="login-link" onClick={this.props.onClick}>Please login here</a></a>
                     <Button type={"button"} buttonStyle={"btn--outline"}>Register</Button>
                 </div>
+                
             </div>
         )
     }
