@@ -41,7 +41,7 @@ export class Login extends React.Component {
            let lastDotPos = field["email"].lastIndexOf('.')
 
            if(!(lastAtPos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)){
-               formIsValid = false
+                formIsValid = false
                errors["email"] = "Email is not valid"
            }
         }
