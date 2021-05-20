@@ -7,44 +7,55 @@ export class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            field: {},
+            fields: {},
             errors: {},
         }
     }
 
     handleValidation() {
-        let { field } = this.state
+        let { fields } = this.state
         let  errors = {}
         let formIsValid = true
 
         //username
-        if(!field["username"]){
+        if(!fields["username"]){
             formIsValid = false
             errors["username"] = "username cannot be empty"
         }
 
-        if(typeof field["username"]!== "undefined"){
-            if(field["username"].match(/[\s]/g)){
+        if(typeof fields["username"]!== "undefined"){
+            if(fields["username"].match(/[\s]/g)){
                 formIsValid = false
                 errors["username"] = "username cannot be any whitespace"
             }
         }
 
-        //email
-        if(!field["email"]) {
+        //password
+        if(!fields["password"]) {
             formIsValid = false
-            errors["email"] = "Email Cannot be empty"
+            errors["password"] = "password cannot be empty"
         }
 
-        if(typeof field["email"] !== "undefined") {
-           let lastAtPos = field["email"].lastIndexOf('@')
-           let lastDotPos = field["email"].lastIndexOf('.')
+        this.setState({error: errors})
+        return formIsValid
 
-           if(!(lastAtPos < lastDotPos && lastAtPos > 0 && field["email"].indexOf('@@') === -1 && lastDotPos > 2 && (field['email'].length - lastDotPos) > 2)){
-                formIsValid = false
-               errors["email"] = "Email is not valid"
-           }
+    }
+
+    contactSubmit(e) {
+        e.preventDefault()
+
+        if(this.handleValidation()){
+            alert("Login success")
+        } else {
+            alert("login faill")
         }
+    }
+
+    handleChange(field, e) {
+        let { fields } = this.state
+        fields[field] = e.target.value
+        this.setState(fields)
+
     }
 
     render() {

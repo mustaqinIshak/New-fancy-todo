@@ -25,8 +25,7 @@ export class Register extends React.Component {
         }
 
         if (typeof fields["fullname"] !== "undefined") {
-            if(!fields["fullname"].match(/^[a-zA-z]+$/)) {
-                console.log("ada")
+            if(!fields["fullname"].match(/^[a-zA-Z]+$/)) {
                 formIsValid = false
                 errors["fullname"] = "Only Letters"
             }
@@ -62,6 +61,19 @@ export class Register extends React.Component {
            }
         }
 
+        //password
+        if(!fields["password"]){
+            formIsValid = false
+            errors["password"] = "password cannot be empty"
+        }
+
+        if (typeof fields["password"] !== "undefined") {
+            if (fields["password"].length < 8) {
+                formIsValid = false
+                errors["password"] = "password must be 8 character or more"
+            }
+        }
+
         this.setState({errors: errors})
         return formIsValid
     }
@@ -90,38 +102,37 @@ export class Register extends React.Component {
                     Register
                 </div>
                 <form className="form" onSubmit={this.contactSubmit.bind(this)}>
-                    {/* <fieldset> */}
                         <div className="form-group">
                                 <label htmlFor="fullname">
                                     Fullname: 
                                 </label>
                                 <input type="text" ref="fullname" placeholder="Fullname" onChange={this.handleChange.bind(this,"fullname")} value={this.state.fields["fullname"]}/>
                                 <span className="error">{this.state.errors["fullname"]}</span>
-                                {/* <span className="error">ini error</span> */}
                         </div>
                         <div className="form-group">
                             <label htmlFor="username">
                                 Username :
                             </label>
-                            <input type="text" refs="username" placeholder="username"onChange={this.handleChange.bind(this,"username")} value={this.state.fields["email"]}/>
+                            <input type="text" refs="username" placeholder="username" onChange={this.handleChange.bind(this,"username")} value={this.state.fields["username"]}/>
+                            <span className="error">{this.state.errors["username"]}</span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">
                                 Email :
                             </label>
-                            <input type="email" name="email" placeholder="email@mail.com"/>
+                            <input type="email" refs="email" placeholder="email@mail.com" onChange={this.handleChange.bind(this,"email")} value={this.state.fields["email"]}/>
+                            <span className="error">{this.state.errors["email"]}</span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">
                                 password :
                             </label>
-                            <input type="password" name="password" placehoder="password" />
+                            <input type="password" refs="password" placehoder="password" onChange={this.handleChange.bind(this, "password")} value={this.state["password"]}/>
+                            <span className="error">{this.state.errors["password"]}</span>
                         </div>
-                    {/* </fieldset> */}
-                        <Button buttonStyle={"btn--outline"}>Register</Button>
-                        {/* <button id="submit" value="Submit">Register</button> */}
                     <div className="footer">
                         <a>Already have account ? <a className="login-link" onClick={this.props.onClick}>Please login here</a></a>
+                        <Button buttonStyle={"btn--outline"}>Register</Button>
                     </div>
                 </form>
                 
