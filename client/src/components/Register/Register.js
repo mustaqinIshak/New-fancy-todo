@@ -18,19 +18,6 @@ export class Register extends React.Component {
         let errors = {}
         let formIsValid = true
 
-        //fullname
-        if(!fields["fullname"]) {
-            formIsValid = false
-            errors["fullname"] = "fullname cannot be empty"
-        }
-
-        if (typeof fields["fullname"] !== "undefined") {
-            if(!fields["fullname"].match(/^[a-zA-Z]+$/)) {
-                formIsValid = false
-                errors["fullname"] = "Only Letters"
-            }
-        }
-
         //username
         if(!fields["username"]){
             formIsValid = false
@@ -42,23 +29,6 @@ export class Register extends React.Component {
                 formIsValid = false
                 errors["username"] = "username cannot be any whitespace"
             }
-        }
-
-
-        //email
-        if(!fields["email"]) {
-            formIsValid = false
-            errors["email"] = "email cannot be empty"
-        }
-
-        if(typeof fields["email"] !== "undefined") {
-            let lastAtPos = fields["email"].lastIndexOf('@')
-            let lastDotPos = fields["email"].lastIndexOf('.')
-
-           if(!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') === -1 && lastDotPos > 2 && (fields['email'].length - lastDotPos) > 2)) {
-               formIsValid = false
-               errors["email"] = "email is not valid"
-           }
         }
 
         //password
@@ -101,14 +71,7 @@ export class Register extends React.Component {
                 <div className="header">
                     Register
                 </div>
-                <form className="form" onSubmit={this.contactSubmit.bind(this)}>
-                        <div className="form-group">
-                                <label htmlFor="fullname">
-                                    Fullname: 
-                                </label>
-                                <input type="text" ref="fullname" placeholder="Fullname" onChange={this.handleChange.bind(this,"fullname")} value={this.state.fields["fullname"]}/>
-                                <span className="error">{this.state.errors["fullname"]}</span>
-                        </div>
+                <form className="form" onSubmit={this.contactSubmit.bind(this)}>   
                         <div className="form-group">
                             <label htmlFor="username">
                                 Username :
@@ -116,16 +79,10 @@ export class Register extends React.Component {
                             <input type="text" refs="username" placeholder="username" onChange={this.handleChange.bind(this,"username")} value={this.state.fields["username"]}/>
                             <span className="error">{this.state.errors["username"]}</span>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email">
-                                Email :
-                            </label>
-                            <input type="email" refs="email" placeholder="email@mail.com" onChange={this.handleChange.bind(this,"email")} value={this.state.fields["email"]}/>
-                            <span className="error">{this.state.errors["email"]}</span>
-                        </div>
+                
                         <div className="form-group">
                             <label htmlFor="password">
-                                password :
+                                Password :
                             </label>
                             <input type="password" refs="password" placehoder="password" onChange={this.handleChange.bind(this, "password")} value={this.state["password"]}/>
                             <span className="error">{this.state.errors["password"]}</span>

@@ -2,6 +2,15 @@ import React from "react";
 import "../../General/style.scss";
 import { Button } from "../Button";
 import { render } from "@testing-library/react";
+import APIKit, {setClientToken, setTokenClient} from '../../General/APIKit'
+
+const initialState = {
+    username: '',
+    password: '',
+    errors: {},
+    isAuthorized: false,
+    isLoading: false,
+}
 
 export class Login extends React.Component {
     constructor(props) {
@@ -9,6 +18,8 @@ export class Login extends React.Component {
         this.state = {
             fields: {},
             errors: {},
+            isAuthorized: false,
+            isLoading: false,
         }
     }
 
@@ -36,7 +47,7 @@ export class Login extends React.Component {
             errors["password"] = "password cannot be empty"
         }
 
-        this.setState({error: errors})
+        this.setState({errors: errors})
         return formIsValid
 
     }
@@ -44,10 +55,28 @@ export class Login extends React.Component {
     contactSubmit(e) {
         e.preventDefault()
 
-        if(this.handleValidation()){
-            alert("Login success")
-        } else {
-            alert("login faill")
+        if(this.handleValidation()) {
+            const username = this.state.fields["username"]
+            const password = this.state.fields["password"]
+            let errors = {}
+            const payload = {username, password}
+            console.log(payload)
+
+            const onSuccess = ({data}) => {
+                // set JSON Web Token on Success
+                setClientToken(data.token)
+                this.setState({isLoading: false, isAuthorized: true})
+            }
+
+            const onFailure = error => {
+                console.log(error && error.response)
+                errors["serverErrors"] = error.response.data.message
+                this.setState({errors: errors, isLoading: false})
+            }
+
+            APIKit.post('/users/login', payload)
+            .then(onSuccess)
+            .catch(onFailure)
         }
     }
 
@@ -64,20 +93,25 @@ export class Login extends React.Component {
                 <div className="header">
                     Login
                 </div>
-                <div className="form">
-                    <div className="form-group">
-                        <label htmlFor="username">Username :</label>
-                        <input type="text" name="username" placeholder="username" />
+                <form onSubmit={this.contactSubmit.bind(this)}>
+                <span className="error">{this.state.errors["serverErrors"]}</span>
+                    <div className="form">
+                        <div className="form-group">
+                            <label htmlFor="username">Username :</label>
+                            <input type="text" refs="username" placeholder="username" onChange={this.handleChange.bind(this,"username")} value={this.state.fields["username"]}/>
+                            <span className="error">{this.state.errors["username"]}</span>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password :</label>
+                            <input type="password" refs="password" placeholder="password" onChange={this.handleChange.bind(this,"password")} value={this.state.fields["password"]}/>
+                            <span className="error">{this.state.errors["password"]}</span>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password :</label>
-                        <input type="password" name="password" placeholder="password" />
+                    <div className="footer">
+                        <a>Dont have account ? <a className="register-link" onClick={this.props.onClick}>please register here</a></a>
+                        <Button buttonStyle={"btn--outline"} >Login</Button>
                     </div>
-                </div>
-                <div className="footer">
-                    <a>Dont have account ? <a className="register-link" onClick={this.props.onClick}>please register here</a></a>
-                    <Button type={"button"} buttonStyle={"btn--outline"} >Login</Button>
-                </div>
+                </form>
             </div>
         )
     }

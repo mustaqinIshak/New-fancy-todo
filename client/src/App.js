@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter, Router, Switch } from 'react-router-dom'
 import './App.scss';
 import { Navbar } from "./components/navbar/Navbar"
 import { Login } from "./components/Login/Login.js"
