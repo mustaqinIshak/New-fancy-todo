@@ -11,13 +11,11 @@ class userController {
             const { username, password} = req.body
             let newUser = await User.create({ username: username, password: password})
             const token = await generateToken(newUser._id)
-            const data = {
-                id :newUser._id,
-                username: newUser.username,
-                token: token
+            const message = {
+                message: "register is success"
             }
 
-            res.status(201).json(data)
+            res.status(201).json(message)
         } catch (err) {
             next(err)
         }

@@ -60,11 +60,12 @@ export class Login extends React.Component {
             const password = this.state.fields["password"]
             let errors = {}
             const payload = {username, password}
-            console.log(payload)
 
-            const onSuccess = ({data}) => {
+            const onSuccess = async({data}) => {
                 // set JSON Web Token on Success
-                setClientToken(data.token)
+                console.log(`ini data token di file login ${data.token}`)
+                const token = await setClientToken(data.token)
+                console.log(`ini hasil dari setClientToken ${token}`)
                 this.setState({isLoading: false, isAuthorized: true})
             }
 
