@@ -6,6 +6,12 @@ import { Login } from "./components/Login/Login.js"
 import { Register } from "./components/Register/Register.js"
 import  Logo from  "./logo/logo.svg"
 
+
+function getToken() {
+
+}
+
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +20,6 @@ class App extends React.Component {
       isLogin: false,
     }
   }
-
   changeState() {
     const { isLoginActive } = this.state
 

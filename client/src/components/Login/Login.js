@@ -63,7 +63,7 @@ export class Login extends React.Component {
 
             const onSuccess = async({data}) => {
                 // set JSON Web Token on Success
-                console.log(`ini data token di file login ${data.token}`)
+                sessionStorage.setItem('token', JSON.stringify(data.token))
                 const token = await setClientToken(data.token)
                 console.log(`ini hasil dari setClientToken ${token}`)
                 this.setState({isLoading: false, isAuthorized: true})
